@@ -10,7 +10,7 @@ class NewsList extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         childCount: 10,
         (context, index) {
-          return NewsInfo();
+          return const NewsInfo();
         },
       ),
     );

@@ -14,6 +14,10 @@ class CategoryInfo extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         image: DecorationImage(
+          colorFilter: ColorFilter.mode(
+            Colors.black.withOpacity(0.4),
+            BlendMode.darken,
+          ),
           image: AssetImage(category.image),
           fit: BoxFit.cover,
         ),
@@ -22,7 +26,8 @@ class CategoryInfo extends StatelessWidget {
         child: Text(
           category.title,
           textAlign: TextAlign.center,
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );
