@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/models/news_model.dart';
 
 class NewsInfo extends StatelessWidget {
-  const NewsInfo({super.key});
+  const NewsInfo({super.key, required this.newsModel});
+  final NewsModel newsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -11,27 +13,36 @@ class NewsInfo extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: Image.network(
-              'https://images.pexels.com/photos/355508/pexels-photo-355508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-              height: 200,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
+            child: newsModel.image != null
+                ? Image.network(
+                    newsModel.image!,
+                    height: 200,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  )
+                : Image.asset(
+                    'assets/notFoundImage.jpg',
+                    height: 200,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
           ),
-          const Text(
-            'data',
+          Text(
+            newsModel.title,
             maxLines: 2,
-            style: TextStyle(
+            textDirection: TextDirection.rtl,
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w400,
             ),
             overflow: TextOverflow.ellipsis,
           ),
-          const Text(
-            'data',
+          Text(
+            newsModel.description,
             maxLines: 2,
-            style: TextStyle(
-              color: Colors.grey,
+            textDirection: TextDirection.rtl,
+            style: const TextStyle(
+              color: Colors.blueGrey,
               fontSize: 15,
             ),
             overflow: TextOverflow.ellipsis,
