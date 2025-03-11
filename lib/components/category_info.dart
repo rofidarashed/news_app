@@ -15,7 +15,7 @@ class CategoryInfo extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         image: DecorationImage(
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.4),
+            Colors.black.withValues(alpha: 0.4),
             BlendMode.darken,
           ),
           image: AssetImage(category.image),
