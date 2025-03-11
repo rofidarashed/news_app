@@ -6,13 +6,13 @@ import '../models/category_model.dart';
 class CategoryList extends StatelessWidget {
   const CategoryList({super.key});
   final List<CategoryModel> categories = const [
-    CategoryModel(image: 'assets/business.jpg', title: 'Business'),
     CategoryModel(image: 'assets/entertainment.jpg', title: 'Entertaiment'),
-    CategoryModel(image: 'assets/world.jpg', title: 'word'),
     CategoryModel(image: 'assets/health.jpg', title: 'Health'),
-    CategoryModel(image: 'assets/science.jpg', title: 'Science'),
     CategoryModel(image: 'assets/sports.avif', title: 'Sports'),
     CategoryModel(image: 'assets/technology.jpg', title: 'Technology'),
+    CategoryModel(image: 'assets/business.jpg', title: 'Business'),
+    CategoryModel(image: 'assets/science.jpg', title: 'Science'),
+    CategoryModel(image: 'assets/world.jpg', title: 'word'),
   ];
 
   @override
