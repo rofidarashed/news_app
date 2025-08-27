@@ -13,24 +13,29 @@ class NewsInfo extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: newsModel.image != null
-                ? Image.network(
-                    newsModel.image!,
-                    height: 200,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  )
-                : Image.asset(
-                    'assets/notFoundImage.jpg',
-                    height: 200,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
+            child: Image.network(
+              newsModel.image ?? '',
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => Container(
+                color: Colors.grey[300],
+                height: 200,
+                width: double.infinity,
+                child: Icon(
+                  Icons.hide_image,
+                  size: 50,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
           ),
           Text(
             newsModel.title,
             maxLines: 2,
-            textDirection: TextDirection.rtl,
+            textDirection: newsModel.language == 'arabic'
+                ? TextDirection.rtl
+                : TextDirection.ltr,
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w400,
@@ -40,7 +45,9 @@ class NewsInfo extends StatelessWidget {
           Text(
             newsModel.description,
             maxLines: 2,
-            textDirection: TextDirection.rtl,
+            textDirection: newsModel.language == 'arabic'
+                ? TextDirection.rtl
+                : TextDirection.ltr,
             style: const TextStyle(
               color: Colors.blueGrey,
               fontSize: 15,
