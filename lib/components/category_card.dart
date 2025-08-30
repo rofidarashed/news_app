@@ -15,7 +15,9 @@ class CategoryInfo extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return CategoryPage(categoryModel: category,);
+              return CategoryPage(
+                categoryModel: category,
+              );
             },
           ),
         );
@@ -24,7 +26,7 @@ class CategoryInfo extends StatelessWidget {
         margin: const EdgeInsets.only(right: 8),
         width: 180,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
             colorFilter: ColorFilter.mode(
               Colors.black.withValues(alpha: 0.4),

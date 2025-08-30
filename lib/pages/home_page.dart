@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         forceMaterialTransparency: true,
         title: const Row(
@@ -34,7 +35,6 @@ class HomePage extends StatelessWidget {
               child: CategoryList(),
             ),
             NewsListBuilder(category: 'top'),
-            
           ],
         ),
       ),

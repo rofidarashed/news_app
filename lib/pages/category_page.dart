@@ -12,7 +12,9 @@ class CategoryPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(categoryModel.title),
+        title: Text(
+          categoryModel.title,
+        ),
         centerTitle: true,
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.white,

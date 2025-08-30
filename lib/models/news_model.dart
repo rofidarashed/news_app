@@ -3,11 +3,15 @@ class NewsModel {
   final String title;
   final String description;
   final String language;
+  final String? author;
+  final String url;
   const NewsModel({
     required this.image,
     required this.title,
     required this.description,
     required this.language,
+    required this.author,
+    required this.url,
   });
 
   factory NewsModel.fromJson(Map<String, dynamic> json) {
@@ -16,6 +20,8 @@ class NewsModel {
       title: json['title'],
       description: json['description'],
       language: json['language'],
+      author: json['author'] ?? 'Unknown Author',
+      url: json['creator'],
     );
   }
 }
