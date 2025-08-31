@@ -19,8 +19,11 @@ class NewsService {
         NewsModel newsModel = NewsModel.fromJson(article);
         articlesList.add(newsModel);
       }
+      print('Fetched ${articlesList.length} articles');
+      print('Fetched $articlesList articles');
       return articlesList;
     } catch (e) {
+      print('Error fetching news articles: $e');
       return [];
     }
   }

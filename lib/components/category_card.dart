@@ -23,10 +23,17 @@ class CategoryInfo extends StatelessWidget {
         );
       },
       child: Container(
-        margin: const EdgeInsets.only(right: 8),
-        width: 180,
+        margin: const EdgeInsets.only(right: 8, bottom: 15, top: 8),
+        width: 130,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          boxShadow: List.filled(
+              2,
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                blurRadius: 8,
+                offset: Offset(2, 2),
+              )),
+          borderRadius: BorderRadius.circular(8),
           image: DecorationImage(
             colorFilter: ColorFilter.mode(
               Colors.black.withValues(alpha: 0.4),

@@ -38,7 +38,6 @@ class _NewsListBuilderState extends State<NewsListBuilder> {
             ),
           );
         } else if (snapshot.hasError) {
-          print('errorrrrr ${snapshot.error}');
           return SliverFillRemaining(
             hasScrollBody: false,
             child: Center(
@@ -49,8 +48,6 @@ class _NewsListBuilderState extends State<NewsListBuilder> {
             ),
           );
         } else if (snapshot.data == null || snapshot.data!.isEmpty) {
-          print('errorrrrr ${snapshot.error}');
-
           return SliverFillRemaining(
             hasScrollBody: false,
             child: Center(

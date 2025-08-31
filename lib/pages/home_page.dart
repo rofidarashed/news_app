@@ -1,10 +1,17 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/services/news_service.dart';
 import 'package:news_app/widgets/category_list.dart';
 import 'package:news_app/widgets/news_list_builder.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,27 +22,39 @@ class HomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'News',
+              'Flash',
+              style: TextStyle(
+                color: Colors.red,
+              ),
             ),
             Text(
-              'Cloud',
+              'News',
               style: TextStyle(
-                color: Colors.amber,
+                color: Colors.black,
               ),
             ),
           ],
         ),
         centerTitle: true,
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.0),
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: CategoryList(),
-            ),
-            NewsListBuilder(category: 'top'),
-          ],
+      body: RefreshIndicator(
+        color: Colors.red,
+        backgroundColor: Colors.white,
+        onRefresh: () async {
+          setState(() {
+            NewsService(dio: Dio()).getTopNews(category: 'top');
+          });
+        },
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8.0),
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: CategoryList(),
+              ),
+              NewsListBuilder(category: 'top'),
+            ],
+          ),
         ),
       ),
     );

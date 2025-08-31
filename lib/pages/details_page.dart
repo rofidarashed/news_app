@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/news_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({super.key, required this.newsModel});
   final NewsModel newsModel;
   @override
   Widget build(BuildContext context) {
+    final link = newsModel.url;
+    final url = Uri.parse(link);
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       floatingActionButton: FloatingActionButton(
@@ -51,7 +54,7 @@ class DetailsPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 200,
+            bottom: 100,
             left: 16,
             right: 16,
             child: Column(
@@ -77,7 +80,7 @@ class DetailsPage extends StatelessWidget {
                 ),
                 Text(
                   newsModel.description,
-                  maxLines: 1,
+                  maxLines: 15,
                   textDirection: newsModel.language == 'arabic'
                       ? TextDirection.rtl
                       : TextDirection.ltr,
@@ -90,17 +93,44 @@ class DetailsPage extends StatelessWidget {
                 SizedBox(
                   height: 8,
                 ),
-                Text(
-                  'By ${newsModel.author}',
-                  maxLines: 1,
-                  textDirection: newsModel.language == 'arabic'
-                      ? TextDirection.rtl
-                      : TextDirection.ltr,
-                  style: TextStyle(
-                    color: Colors.white60,
-                    fontSize: 20,
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white24,
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  overflow: TextOverflow.ellipsis,
+                  child: Text(
+                    ' ${newsModel.author}',
+                    maxLines: 2,
+                    textDirection: newsModel.language == 'arabic'
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
+                    style: TextStyle(
+                      color: Colors.white60,
+                      fontSize: 20,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                InkWell(
+                  onTap: () {
+                    launchUrl(url);
+                  },
+                  child: Text(
+                    newsModel.language == 'arabic'
+                        ? 'لتفاصيل أكتر'
+                        : 'For more details',
+                    textDirection: newsModel.language == 'arabic'
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 20,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
             ),
