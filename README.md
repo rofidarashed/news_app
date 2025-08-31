@@ -11,7 +11,11 @@
 <img src="https://github.com/user-attachments/assets/ca94026e-5f47-4cbe-b5b4-d2dafba87320" width="300">
 <img src="https://github.com/user-attachments/assets/11250e88-67be-4665-8c48-1f58e34513b1" width="300">
 <img src="https://github.com/user-attachments/assets/13f4a7f8-8e24-4e54-b9dc-d8a58bf3f7ce" width="300">
-<img src="https://github.com/user-attachments/assets/db141684-cc57-4eac-b561-ca53cfbc1857" width="300">
+<img src="https://github.com/user-attachments/assets/d5b34b29-864a-473d-95e4-11d600048449" width="300">
+
+## 🎥 Demo Video
+
+<video src="https://github.com/user-attachments/assets/13c613b9-9c00-40a1-88af-d14016893438" width="300" autoplay loop muted></video>
 
 ## ✨ Features
 
