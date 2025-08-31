@@ -94,12 +94,13 @@ class DetailsPage extends StatelessWidget {
                   height: 8,
                 ),
                 Container(
+                  padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: Colors.white24,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
-                    ' ${newsModel.author}',
+                    ' ${newsModel.author?[0]} ',
                     maxLines: 2,
                     textDirection: newsModel.language == 'arabic'
                         ? TextDirection.rtl

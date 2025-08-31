@@ -20,7 +20,8 @@ class NewsModel {
       title: json['title'],
       description: json['description'],
       language: json['language'],
-      author: (json['creator'] as List?)?.map((e) => e.toString()).toList() ?? [],
+      author: (json['creator'] as List?)?.map((e) => e.toString()).toList() ??
+          ['Unknown Author'],
       url: json['link'],
     );
   }
